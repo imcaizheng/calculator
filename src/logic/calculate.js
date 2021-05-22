@@ -25,6 +25,9 @@ export default function calculate (obj, buttonName) {
     }
   }
   if (buttonName === '=') {
+    if (obj.operation === '') {
+      return
+    }
     try {
       const result = evaluate(obj.operation.replace(/x/g, '*').replace(/÷/g, '/'))
       return { result: String(result) }
